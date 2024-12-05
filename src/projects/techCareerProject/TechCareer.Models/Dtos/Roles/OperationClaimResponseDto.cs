@@ -1,0 +1,8 @@
+﻿namespace TechCareer.Models.Dtos.Roles;
+
+public class OperationClaimResponseDto
+{
+    public int Id { get; set; }
+
+    public string? Name { get; set; }
+}

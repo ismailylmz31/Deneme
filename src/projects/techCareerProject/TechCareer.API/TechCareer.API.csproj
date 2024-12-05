@@ -23,4 +23,8 @@
     <ProjectReference Include="..\TechCareer.Service\TechCareer.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
 </Project>

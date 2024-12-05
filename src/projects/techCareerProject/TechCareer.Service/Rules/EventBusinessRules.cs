@@ -20,8 +20,11 @@ namespace TechCareer.Service.Rules
         {
             _eventRepository = eventRepository;
         }
+        public EventBusinessRules()
+        {
+        }
 
-        public async Task<Event> EventMustExist(Guid id)
+        public virtual async Task<Event> EventMustExist(Guid id)
         {
             var eventEntity = await _eventRepository.GetAsync(e => e.Id == id);
             if (eventEntity == null)
@@ -31,7 +34,7 @@ namespace TechCareer.Service.Rules
             return eventEntity;
         }
 
-        public async Task EventTitleMustBeUnique(string title)
+        public virtual async Task EventTitleMustBeUnique(string title)
         {
             var exists = await _eventRepository.AnyAsync(e => e.Title == title);
             if (exists)

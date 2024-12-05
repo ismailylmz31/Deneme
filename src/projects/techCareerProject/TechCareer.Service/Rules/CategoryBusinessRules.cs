@@ -14,11 +14,11 @@ namespace TechCareer.Service.Rules
         {
             _categoryRepository = categoryRepository;
         }
-
+        public CategoryBusinessRules() { }
         /// <summary>
         /// Verilen id'ye sahip bir kategori varlığının mevcut olduğunu doğrular.
         /// </summary>
-        public async Task<Category> CategoryMustExist(int id)
+        public virtual async Task<Category> CategoryMustExist(int id)
         {
             var categoryEntity = await _categoryRepository.GetAsync(c => c.Id == id);
             if (categoryEntity == null)
@@ -31,7 +31,7 @@ namespace TechCareer.Service.Rules
         /// <summary>
         /// Verilen isimde bir kategorinin zaten var olup olmadığını kontrol eder.
         /// </summary>
-        public async Task CategoryNameMustBeUnique(string name)
+        public virtual async Task CategoryNameMustBeUnique(string name)
         {
             var exists = await _categoryRepository.AnyAsync(c => c.Name == name);
             if (exists)

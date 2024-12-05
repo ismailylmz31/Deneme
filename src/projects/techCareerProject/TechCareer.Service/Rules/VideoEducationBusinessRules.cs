@@ -15,7 +15,7 @@ namespace TechCareer.Service.Rules;
 public sealed class VideoEducationBusinessRules(IVideoEducationRepository _videoEducationRepository) : BaseBusinessRules
 {
 
-
+    
     public async Task<VideoEducation> VideoEducationMustExist(int id)
     {
         var videoEducationEntity = await _videoEducationRepository.GetAsync(e => e.Id == id);

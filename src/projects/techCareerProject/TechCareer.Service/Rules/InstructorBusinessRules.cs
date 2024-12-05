@@ -17,8 +17,8 @@ namespace TechCareer.Service.Rules
         {
             _instructorRepository = instructorRepository;
         }
-
-        public async Task<Instructor> InstructorMustExist(Guid id)
+        public InstructorBusinessRules() { }    
+        public virtual async Task<Instructor> InstructorMustExist(Guid id)
         {
             var instructor = await _instructorRepository.GetAsync(i => i.Id == id);
             if (instructor == null)
@@ -28,7 +28,7 @@ namespace TechCareer.Service.Rules
             return instructor;
         }
 
-        public async Task InstructorNameMustBeUnique(string name)
+        public virtual async Task InstructorNameMustBeUnique(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -42,7 +42,7 @@ namespace TechCareer.Service.Rules
             }
         }
 
-        public void ValidateInstructorData(Instructor instructor)
+        public virtual void ValidateInstructorData(Instructor instructor)
         {
             if (instructor == null)
             {

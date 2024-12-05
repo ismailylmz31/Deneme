@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCareer.Models.Dtos.Category
 {
-    public sealed record UpdateCategoryRequestDto(int Id, string name)
+    public sealed record UpdateCategoryRequestDto(int Id, string Name)
     {
     }
 }
